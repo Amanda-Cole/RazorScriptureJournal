@@ -1,0 +1,64 @@
+﻿@page
+@model RazorScriptureJournal.Pages.Entries.IndexModel
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Scripture Journal Entries</h1>
+
+<p>
+    <a asp-page="Create" class="custom-link">Create New </a>
+</p>
+<form>
+    <p>
+        Search Reference: <input type ="text" asp-for ="SearchString"/>
+        <input type="submit" value="Filter"/>
+    </p>
+    <p>
+        Search Notes: <input type="text" asp-for="SearchStringNotes" />
+        <input type="submit" value="Filter" />
+    </p>
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+@*                 @Html.DisplayNameFor(model => model.Entry[0].Reference)
+ *@                <a asp-page="./Index" asp-route-sortOrder="reference" class=" custom-link">Reference </a>
+            </th>
+            <th>
+@*                 @Html.DisplayNameFor(model => model.Entry[0].Date)
+ *@                <a asp-page="./Index" asp-route-sortOrder="date_desc" class="custom-link">Date</a>
+            </th>
+            <th>
+                <label class="notes">@Html.DisplayNameFor(model => model.Entry[0].Notes)</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Entry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reference, new { htmlAttributes = new {@class = "custom-text-color"}})
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Date , new { htmlAttributes = new {@class = "custom-text-color"}})
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Notes , new { htmlAttributes = new {@class = "notes"}})
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id" class="custom-link">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id" class="custom-link">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id" class="custom-link">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
