@@ -1,5 +1,13 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Open+Sans:wght@300&family=Playfair+Display&family=Playfair+Sans:wght@200&display=swap');
+
+/* Other CSS styles */
+
+
+
 html {
   font-size: 14px;
+
 }
 
 @media (min-width: 768px) {
@@ -21,6 +29,9 @@ body {
   margin-bottom: 60px;
   background-color:navy;
   color:goldenrod;
+  font-family: 'Lora', serif;
+  letter-spacing: 1px;
+  
 }
 
 
@@ -36,7 +47,7 @@ body {
 }
 
 .table {
-    color: white;
+    color: wheat;
 }
 .navbar-brand{
     color:goldenrod;
